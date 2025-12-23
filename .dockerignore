@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+Makefile
+
+# Tests
+*_test.go
+tests/
+coverage.txt
+coverage.html
+
+# Build artifacts
+bin/
+dist/
+*.exe
+hexagonal-app
+
+# Examples
+examples/
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Misc
+.env*
+*.log
+tmp/

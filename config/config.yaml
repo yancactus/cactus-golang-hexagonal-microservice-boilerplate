@@ -1,0 +1,94 @@
+env: dev
+app:
+  name: cactus-golang-hexagonal-microservice-boilerplate
+  debug: true
+  version: v1.0.0
+http_server:
+  addr: :8080
+  pprof: false
+  default_page_size: 10
+  max_page_size: 100
+  read_timeout: 60s
+  write_timeout: 60s
+metrics_server:
+  addr: :9090
+  enabled: true
+  path: /metrics
+tracing:
+  enabled: true
+  endpoint: localhost:4318
+  sampler: 1.0
+log:
+  # save_path: ./tmp  # Disabled to avoid duplicate logs
+  # file_name: app
+  # max_size: 100
+  # max_age: 30
+  # local_time: true
+  # compress: true
+  level: debug
+  enable_console: true
+  enable_color: true
+  enable_caller: true
+  enable_stacktrace: false
+redis:
+  host: 127.0.0.1
+  port: 6380
+  password: ""
+  db: 0
+  poolSize: 10
+  idleTimeout: 300
+  minIdleConns: 5
+postgres:
+  user: postgres
+  password: postgres
+  host: 127.0.0.1
+  port: 5433
+  database: go_hexagonal
+  ssl_mode: disable
+  options: ""
+  max_connections: 100
+  min_connections: 10
+  max_conn_lifetime: 300
+  idle_timeout: 300
+  connect_timeout: 10
+  time_zone: UTC
+mongodb:
+  host: 127.0.0.1
+  port: 27017
+  database: go_hexagonal
+  user: mongo
+  password: mongo
+  auth_source: admin
+  options: ""
+  min_pool_size: 5
+  max_pool_size: 100
+  idle_timeout: 300
+dynamodb:
+  endpoint: http://localhost:4566
+  region: us-east-1
+  access_key_id: test
+  secret_access_key: test
+  table_prefix: ""
+kafka:
+  brokers:
+    - localhost:9092
+  consumer_group: cactus-golang-hexagonal-microservice-boilerplate-group
+  topics:
+    audit_events: audit-events
+  producer:
+    required_acks: -1
+    max_retry: 5
+  consumer:
+    auto_commit: true
+    commit_interval: 1000
+rabbitmq:
+  host: 127.0.0.1
+  port: 5672
+  user: rabbitmq
+  password: rabbitmq
+  vhost: go_hexagonal
+  exchange: audit-exchange
+  queue: audit-queue
+  routing_key: audit
+  prefetch: 10
+migration_dir: ./migrations
